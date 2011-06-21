@@ -15,6 +15,7 @@ class Merchandise implements MerchandiseInterface
 {
 
     protected $productReferences;
+    protected $nodes;
 
     /**
      * Constructor
@@ -24,6 +25,30 @@ class Merchandise implements MerchandiseInterface
         $this->productReferences = array();
 
     }
+
+
+    public function addNode($name, MerchandiseNodeInterface $node)
+    {
+
+        $this->nodes[$name] = $node;
+    }
+
+    public function getNode($name)
+    {
+
+        if (array_key_exists($name, $this->nodes))
+        {
+            return $this->nodes[$name];
+        }
+    }
+
+
+     public function __get($property)
+     {
+
+         return $this->getNode($property);
+
+     }
 
    
 }

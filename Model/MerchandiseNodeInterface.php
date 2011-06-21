@@ -11,7 +11,11 @@ namespace Vespolina\MerchandiseBundle\Model;
 
 use Vespolina\MerchandiseBundle\Model\MerchandiseInterface;
 
-interface MerchandiseInterface
+interface MerchandiseNodeInterface
 {
+
+    function getNodeName();
+
+    function setNodeName($name);
 
 }

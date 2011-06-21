@@ -21,6 +21,8 @@ class MerchandiseService extends ContainerAware implements MerchandiseServiceInt
 
     function __construct()
     {
+
+
     }
 
     /**
@@ -31,10 +33,33 @@ class MerchandiseService extends ContainerAware implements MerchandiseServiceInt
 
         $baseClass = 'Vespolina\MerchandiseBundle\Model\Merchandise';
 
+        //TODO: move node configuration to config/resources
+        $nodeConfigurations = array(
+            array(
+                'name' => 'general',
+                'class' => 'Vespolina\MerchandiseBundle\Model\Node\GeneralDescription'),
+            array(
+                'name' => 'pricing',
+                'class' => 'Vespolina\MerchandiseBundle\Model\Node\Pricing'),
+            array(
+                'name' => 'availability',
+                'class' => 'Vespolina\MerchandiseBundle\Model\Node\Availability'));
+
+
         if ($baseClass)
         {
 
             $instance = new $baseClass();
+
+            //Add nodes as described by the configuration
+            foreach ($nodeConfigurations as $nodeConfiguration)
+            {
+                if ($nodeConfiguration['name'])
+                {
+
+                    $instance->addNode($nodeConfiguration['name'], new $nodeConfiguration['class']);
+                }
+            }
         }
 
         return $instance;
@@ -46,9 +71,13 @@ class MerchandiseService extends ContainerAware implements MerchandiseServiceInt
     /**
      * @inheritdoc
      */
-    function setMerchandiseFromProduct(MerchandiseInterface $merchandise, ProductInterface $product)
+    function createMerchandiseFromProduct(ProductInterface $product)
     {
-        
+        $merchandise = $this->create();
+
+        //Do the copying magic
+
+        return $merchandise;
     }
 
 

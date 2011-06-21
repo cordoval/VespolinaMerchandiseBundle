@@ -10,8 +10,13 @@
 namespace Vespolina\MerchandiseBundle\Model;
 
 use Vespolina\MerchandiseBundle\Model\MerchandiseInterface;
+use Vespolina\MerchandiseBundle\Model\MerchandiseNodeInterface;
+
 
 interface MerchandiseInterface
 {
 
+    function addNode($name, MerchandiseNodeInterface $node);
+    
+    function getNode($name);
 }

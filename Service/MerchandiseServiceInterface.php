@@ -24,15 +24,13 @@ interface MerchandiseServiceInterface
     function create();
 
     /**
-     * Transfer merch
+     * Create a new merchandise instance based on a reference product
      *
      * @abstract
-     * @param \Vespolina\DocumentBundle\Model\Document $document The document for which we want to create an item
-     * @param \Vespolina\DocumentBundle\Model\DocumentConfigurationInterface $documentConfiguration
-     *
-     * @return void
+     * @param \Vespolina\ProductBundle\Model\ProductInterface $product
+     * @return \Vespolina\MerchandiseBundle\Model\MerchandiseInterface
      */
-    function setMerchandiseFromProduct(MerchandiseInterface $merchandise, ProductInterface $product);
+    function createMerchandiseFromProduct(ProductInterface $product);
 
 
 }

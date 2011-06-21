@@ -7,11 +7,11 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Vespolina\MerchandiseBundle\Model;
+namespace Vespolina\MerchandiseBundle\Model\Node;
 
 use Vespolina\MerchandiseBundle\Model\MerchandiseNode;
 use Vespolina\PricingBundle\Model\PriceableInterface;
-
+use Vespolina\PricingBundle\Model\PricingSet;
 
 class Pricing extends MerchandiseNode
 {
@@ -23,7 +23,7 @@ class Pricing extends MerchandiseNode
      */
     public function __construct()
     {
-        $this->pricingSet = null;
+        $this->pricingSet = new PricingSet();
 
     }
 

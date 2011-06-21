@@ -27,23 +27,39 @@ class GeneralDescription extends MerchandiseNode
     {
     }
 
+    /**
+     * Get detail description text
+     */
     public function getDetailDescription()
     {
 
         return $this->detailDescription;
     }
 
+    /**
+     * Get merchandise name
+     */
     public function getName()
     {
 
         return $this->name;
     }
 
+    /**
+     * Get the short description
+     */
     public function getShortDescription()
     {
 
         return $this->shortDescription;
     }
+
+    /**
+     * Set the name of the merchandise
+     *
+     * @param  $name Merchandise name
+     * @return void
+     */
 
     public function setName($name)
     {
@@ -51,7 +67,11 @@ class GeneralDescription extends MerchandiseNode
         $this->name = $name;
     }
 
+    public function setShortDescription($shortDescription)
+    {
 
+        $this->shortDescription = $shortDescription;
+    }
 
 
 }

@@ -11,21 +11,31 @@ namespace Vespolina\MerchandiseBundle\Model;
 
 use Vespolina\MerchandiseBundle\Model\MerchandiseInterface;
 
-class Merchandise implements MerchandiseInterface
+class MerchandiseNode implements MerchandiseNodeInterface
 {
 
-    protected $productReferences;
-    protected $nodes;
-
+    protected $nodeName;
+   
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->productReferences = array();
 
     }
- 
 
-   
+    public function getNodeName()
+    {
+
+        return $this->nodeName;
+    }
+ 
+    public function setNodeName($nodeName)
+    {
+        $this->nodeName = $nodeName;
+    }
+
+
+
+
 }

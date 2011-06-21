@@ -13,29 +13,30 @@ use Vespolina\MerchandiseBundle\Model\MerchandiseNode;
 use Vespolina\PricingBundle\Model\PriceableInterface;
 
 
-class Pricing extends MerchandiseNode
+class Availability extends MerchandiseNode
 {
 
-    protected $pricingSet;
+    protected $available;
    
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->pricingSet = null;
+        $this->available = false;
 
     }
 
-    public function getPricingSet()
+    public function isAvailable()
     {
 
-        return $this->pricingSet;
+        return $this->available;
     }
- 
-    public function setPricingSet(PricingSetInterface $pricingSet)
+
+    
+    public function setAvailability($availability)
     {
-        $this->pricingSet = $pricingSet;
+        $this->available = $availability;
     }
 
 
