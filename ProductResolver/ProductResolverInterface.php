@@ -7,15 +7,13 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Vespolina\MerchandiseBundle\Model;
+namespace Vespolina\MerchandiseBundle\ProductResolver;
 
 use Vespolina\MerchandiseBundle\Model\MerchandiseInterface;
 
-interface MerchandiseNodeInterface
+interface ProductResolverInterface
 {
 
-    function getNodeName();
-
-    function setNodeName($name);
+    function resolve(MerchandiseInterface $merchandise, $merchandiseOptions);
 
 }

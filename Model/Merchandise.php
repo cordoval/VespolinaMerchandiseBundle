@@ -10,45 +10,33 @@
 namespace Vespolina\MerchandiseBundle\Model;
 
 use Vespolina\MerchandiseBundle\Model\MerchandiseInterface;
+use Vespolina\ProductBundle\Model\Product;
 
-class Merchandise implements MerchandiseInterface
+
+class Merchandise extends Product implements MerchandiseInterface
 {
 
-    protected $productReferences;
-    protected $nodes;
-
+    protected $productResolverName;
+    
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->productReferences = array();
-
+  
     }
 
-
-    public function addNode($name, MerchandiseNodeInterface $node)
+    public function getProductResolverName()
     {
 
-        $this->nodes[$name] = $node;
+        return $this->productResolverName;
     }
 
-    public function getNode($name)
+    public function setProductResolvername($productResolverName)
     {
 
-        if (array_key_exists($name, $this->nodes))
-        {
-            return $this->nodes[$name];
-        }
+        $this->productResolverName = $productResolverName;
     }
-
-
-     public function __get($property)
-     {
-
-         return $this->getNode($property);
-
-     }
 
    
 }

@@ -24,13 +24,25 @@ interface MerchandiseServiceInterface
     function create();
 
     /**
-     * Create a new merchandise instance based on a reference product
+     * Get the actual products linked to the chosen merchandise and chosen options
      *
      * @abstract
-     * @param \Vespolina\ProductBundle\Model\ProductInterface $product
-     * @return \Vespolina\MerchandiseBundle\Model\MerchandiseInterface
+     * @param \Vespolina\MerchandiseBundle\Model\MerchandiseInterface $merchandise
+     * @param $merchandiseOptions
+     * @return array of ProductInstance
      */
-    function createMerchandiseFromProduct(ProductInterface $product);
+    function resolveProductsByMerchandise(MerchandiseInterface $merchandise, $merchandiseOptions);
+
+    /**
+     * Copy product data into a merchandise instance
+     *
+     * @abstract
+     * @param \Vespolina\DocumentBundle\Model\Document $document The document for which we want to create an item
+     * @param \Vespolina\DocumentBundle\Model\DocumentConfigurationInterface $documentConfiguration
+     *
+     * @return void
+     */
+    function setMerchandiseFromProduct(MerchandiseInterface $merchandise, ProductInterface $product);
 
 
 }
