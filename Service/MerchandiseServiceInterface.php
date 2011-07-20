@@ -24,7 +24,17 @@ interface MerchandiseServiceInterface
     function create();
 
     /**
-     * Transfer merch
+     * Get the actual products linked to the chosen merchandise and chosen options
+     *
+     * @abstract
+     * @param \Vespolina\MerchandiseBundle\Model\MerchandiseInterface $merchandise
+     * @param $merchandiseOptions
+     * @return array of ProductInstance
+     */
+    function resolveProductsByMerchandise(MerchandiseInterface $merchandise, $merchandiseOptions);
+
+    /**
+     * Copy product data into a merchandise instance
      *
      * @abstract
      * @param \Vespolina\DocumentBundle\Model\Document $document The document for which we want to create an item

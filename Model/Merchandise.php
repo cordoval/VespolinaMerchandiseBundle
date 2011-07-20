@@ -10,19 +10,32 @@
 namespace Vespolina\MerchandiseBundle\Model;
 
 use Vespolina\MerchandiseBundle\Model\MerchandiseInterface;
+use Vespolina\ProductBundle\Model\Product;
 
-class Merchandise implements MerchandiseInterface
+
+class Merchandise extends Product implements MerchandiseInterface
 {
 
-    protected $productReferences;
-
+    protected $productResolverName;
+    
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->productReferences = array();
+  
+    }
 
+    public function getProductResolverName()
+    {
+
+        return $this->productResolverName;
+    }
+
+    public function setProductResolvername($productResolverName)
+    {
+
+        $this->productResolverName = $productResolverName;
     }
 
    
