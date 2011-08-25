@@ -24,7 +24,7 @@ class SKUPattern extends ProductResolver
         $sku = $this->generateSKUPattern($merchandise, $merchandiseOptions);
 
         //Todo: delegate the lookup to the product service
-        $product = new Product();
+        $product = new Product(null);
 
         return array($product);
     }
